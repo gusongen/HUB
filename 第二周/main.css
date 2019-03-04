@@ -1,0 +1,238 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.headbox{
+width:auto;
+height:5.5em;
+
+background-color: #353535;
+}
+.midbox{
+    width:auto;
+    height:32em;
+    
+    background-color: #dedede;
+    }
+.logo{
+  padding: 1.5%  0 1.5%  5%;
+
+  height: 55%;
+
+  
+}
+.wxx{
+    font-weight: lighter;
+    font-size: 40px;
+    color:white;
+    display: inline-block;
+    position: relative;
+    top: -35%;
+    padding: 0 8% 0 1%;
+    
+}
+
+.shouye
+{   border-radius: 50px;
+    color: white;
+    border:1.5px grey inset;
+    display: inline-block;
+    padding: 0.8% 1.6% 0.8% 1.6%;
+    position: relative;
+   top:-40%;
+   font-weight: bold;
+}
+.worr
+{
+   display: inline-block;
+    position: relative;
+    top:-40%;
+    color: white;
+    margin: 3% 0% 3% 2%;
+
+}
+.word
+{
+    border-radius: 50px;
+    color: white;
+    border:1.5px transparent inset;
+    display: inline-block;
+    padding: 0.8% 1.3% 0.8% 1.3%;
+    position: relative;
+   top:-40%;
+   font-weight: bold;
+}
+.word:hover{
+    border:1.5px grey inset;
+    font-weight: lighter;
+}
+.wordbox{
+    padding: 5% 5% 0 5%;
+
+    width: 40%;
+    height: 10%;
+}
+.l1
+{
+    color: black;
+    font-size: 2em;
+}
+.l2
+{   margin-top: -2%;
+    color: rgb(141, 141, 141);
+    font-size: 18px;
+    line-height: 35px;
+}
+.mianfeixiazai{
+font-size: 1.8em;
+background-color: rgb(70, 141, 3);
+border-radius: 10px ;
+
+box-shadow: 3px 3px 3px grey;
+
+color: white;
+padding: 2.8% 1% 3.4% 9%;
+width: 40%;
+margin-top:5%;
+margin-bottom: 5%;
+
+}
+.mianfeixiazai img{
+    position: relative;
+ left: 11%;
+top:0.4em;}
+
+.mianfeixiazai:hover{
+    border-color: rgb(45, 131, 45);
+    
+}
+.llll
+{
+ color: rgb(0, 141, 0);
+ line-height: 180%;
+
+}
+.jiantou
+{
+    width:30px;
+    height: 30px;
+    display: inline-block;
+    border: 1px gray solid;
+    background-color:  rgb(89, 187, 89);
+    border-radius: 15px;
+    font :16px lighter;
+    position: relative;
+    left: 12%;
+    bottom:6px;
+}
+.fontbox{
+   width: auto;
+    height: 25em;
+}
+.lbox{
+    margin: 0 0 0 6%;
+    
+    width:57%;
+    display: inline-block;
+    height:75%;
+    position: relative;
+    top: -10em;
+    
+}
+.pipp
+{
+    width: 31%;
+    margin: 0 6px 0 6px ;
+
+}
+.woo
+{width: 30%;
+
+margin: 8px 6px 0 8px ;
+line-height:1em;
+display: inline-block;
+position: relative;
+height: 40%;
+vertical-align:text-top;
+}
+.green{
+    color: rgb(0, 141, 0);
+    line-height:2em;
+    margin: 0 6px 0 8px ;
+   width: 100%;
+   display: inline-block;
+
+}
+.grey{
+    color: rgb(169, 172, 169);
+    line-height:2em;
+    margin: 0 6px 0 8px ;
+    width: 100%;
+}
+b{
+    position: relative;
+    left: 4%;
+    
+}
+.rbox
+{ 
+    
+    width:27%;
+    vertical-align: text-bottom;
+    display: inline-block;
+    list-style-type:disc;
+    position: relative;
+    top:7.2em;
+}
+
+.datebox{
+    
+    width:5%;
+    position: relative;
+    top:18em;
+    display: inline-block;
+    list-style-type:disc;
+    vertical-align: text-bottom;
+    position: relative;
+    top:0.3em;
+    line-height:2em; 
+    color: grey;
+
+}
+.lxwm
+{
+    margin: 10px 0 0 8px;
+    position: relative;
+    top: 10px;
+}
+.footbox
+{
+    width: 90%;
+    height: 5em;
+    margin: 0 0 0 5%;
+    border-top: grey solid 1px;
+    
+}
+.line1 p , .line1 p{
+    color: gray;
+   margin: 1em 0.5em 0em 0.5em;
+   display: inline-block;
+   font-size: 0.85em;
+   display: inline-block;
+}
+.line2 
+{   display: inline-block;
+    margin-left: 29em;
+   
+}
+.hhhh
+{
+    position: relative;
+    left: 30em;
+    top:-23em;
+}
+body{
+    width: 78em;
+    
+    margin:0 auto ;
+}

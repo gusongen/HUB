@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    * {padding:0;margin:0;}
+    button {
+      width:80px;
+      height:40px;
+      border:1px solid #d5dbd2;
+      border-radius:5px;
+      background-color: #fff;
+      outline: none;
+      cursor: pointer;
+    }
+    /*
+      iconfont阿里巴巴矢量图标
+    */
+    @font-face {font-family: "iconfont";
+      src: url('iconfont.eot?t=1553863786038'); /* IE9 */
+      src: url('iconfont.eot?t=1553863786038#iefix') format('embedded-opentype'), /* IE6-IE8 */
+      url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAKwAAsAAAAABkwAAAJmAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCcApUZQE2AiQDCAsGAAQgBYRtBzEbjAUR1Ytfsj8ePWTjbUAvS4pWkSpkY0Qz2FBaidj3fgQznPtj0VVm7DYP6BTkkc/7wfOwDt+/+zfYcR1QItNCAhSXhBBXHeEItUWBKrekgyoO2M74zS3DNlWjIhSfxA/8Pt+WBP5wIewR0qwnPHgA1SlzLYT2w85VvbxRC+yzSkxVWcP+HwBlQFwHQ3/cT/0JNJB8QHOJCIpKShzQbrzzAIpqKoINCDeMXfAC90MAB0JIQjLrwkpEsYcJID1DeyMWnCjKInYINg1zFZnDws4YNwKz0e/loxTBwDKxc0o5q4X9OTH0/V8TILhAQIstwASSAAWpbAwWAwijmDgsLxGAogg8+7EBOeqfh9hgpzsBEAR5z8T3BI8aMQAeqyneQOCks0G8Y3XSu9VlR4cBbU/EtbQfvX6d14533fXbZW/g99Uu8NlvR1Ih/P+gamwhgICt49JlPS0F4KYi0TAz2O3GJPA7JJdF2A4biv6HEOkM1TjTGgtg4H2aPAccgH9sqwdPU1Xe564W7CaYbQnOwMSOKFTJJLBwJBlssCMFHEgkZ7EjnvQCiNoDCQwDENw4BAMXjsDEjQtUyUew8OELbHATwIHqhDUdiRFucJW8UYvhh0OUlV2juTjzRt0xe80LI+qLdB88WKR5OdLQSrrEhP3dlWaMrLJgDQ6jeRbcVEaKlvZmW5Vl3PSkNMoCDip5oxbDD4coKwe1zVW+f6PumL12lNVZX6T70DoWaT4AbWTroLJHeWR/d6UZI6ssWINeNM+CW3OvkaKl/QT/VmVOJR4qS7dXLH+3DgAHtvqUOF3PYBz8anIAAA==') format('woff2'),
+      url('iconfont.woff?t=1553863786038') format('woff'),
+      url('iconfont.ttf?t=1553863786038') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */
+      url('iconfont.svg?t=1553863786038#iconfont') format('svg'); /* iOS 4.1- */
+    }
+
+    .iconfont {
+      font-family: "iconfont" !important;
+      font-size: 16px;
+      font-style: normal;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .icon-jiantou:before {
+      content: "\e606";
+    }
+
+    .icon-jiantou {
+      font-size:30px;
+      cursor: pointer;
+      color:cadetblue;
+      padding:10px;
+      border:1px solid cadetblue;
+      transition:1s all;
+    }
+    .icon-jiantou:hover {
+      color:#eff6ec;
+      background-color: cadetblue;
+    }
+
+    /*
+      弹框
+    */
+    #box {
+      width:350px;
+      height:160px;
+      border:1px solid cadetblue;
+      position:fixed;
+      left:0;
+      right:0;
+      top:0;
+      bottom:0;
+      margin:auto;
+      padding: 20px;
+      border-radius:5px;
+      /*display:none;*/
+      /*visibility:hidden;*/
+      transition:1s all;
+      /*animation: 1s show forwards;*/
+      transform:scale(0);
+      background-color: #fff;
+    }
+
+    /*
+      返回顶部
+    */
+    #back {
+      position:fixed;
+      right:40px;
+      bottom:40px;
+      transform: scale(0);
+      transition: 1s all;
+    }
+    .list {
+      height:500px;
+    }
+    .list:nth-of-type(1) {
+      background-color: cadetblue;
+    }
+    .list:nth-of-type(2) {
+      background-color: red;
+    }
+    .list:nth-of-type(3) {
+      background-color: #c9c9c9;
+    }
+
+    /*
+      animation动画
+    */
+    @keyframes show {
+      0% {
+        transform: translateY(-40px);
+        opacity:0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes leave {
+      0% {
+        transform: translateY(0);
+        opacity:1;
+      }
+      100% {
+        transform: translateY(-40px);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+<button id="btn">click</button>
+<div id="box">
+  <p>弹框</p>
+  <hr />
+  <button class="cancle">取消</button>
+</div>
+<div class="list"></div>
+<div class="list"></div>
+<div class="list"></div>
+<div id="back">
+  <i class="icon-jiantou iconfont"></i>
+</div>
+<script>
+  //弹框
+  var btn = document.querySelector('#btn');
+  var box = document.querySelector('#box');
+  var cancle = document.querySelector('.cancle');
+
+  btn.onclick = function(){
+    // box.style.display = 'block';
+    box.style.transform = 'scale(1)';
+  }
+
+  cancle.onclick = function(){
+    box.style.transform = 'scale(0)';
+
+    // box.style.animation = '1s leave forwards';
+    // setTimeout(function(){
+    //   box.style.display = 'none';
+    // },1000)
+  }
+
+  // setInterval(function(){
+  //   console.log('sss');
+  // },1000)
+
+
+  //返回顶部
+  var back = document.querySelector('#back');
+  window.addEventListener('scroll',function(){
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+    if(scrollTop>200){
+      back.style.transform = 'scale(1)';
+    }else {
+      back.style.transform = 'scale(0)';
+    }
+  })
+  back.onclick = function(){
+    // document.documentElement.scrollTop = 0;
+    var timer = setInterval(function(){
+      if(document.documentElement.scrollTop<=0){
+        document.documentElement.scrollTop = 0;
+        clearInterval(timer);
+        return;
+      }
+      document.documentElement.scrollTop = document.documentElement.scrollTop-20;
+    },5)
+  }
+
+</script>
+</body>
+</html>

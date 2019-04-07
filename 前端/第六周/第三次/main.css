@@ -1,0 +1,35 @@
+.picbox
+{
+    width: 80em;
+    margin: 0 auto;
+    border: 1px red solid;
+    height: 40em;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.hhh
+{   width: 80%;
+    height: 80%;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+.h1{
+    background-image: url("../第三次/img/pic1.jpeg");
+}
+.h2{
+    background-image: url("../第三次/img/pic2.jpeg;");
+}
+.h3{
+    background-image: url("../第三次/img/pic3.jpg");
+}
+.h5{
+    background-image: url("../第三次/img/pic4.png");
+}
+.h1{
+    background-image: url("../第三次/img/pic5.jpeg");
+}
+

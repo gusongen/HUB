@@ -37,11 +37,9 @@ from openpyxl import Workbook
 class  HhhPipeline(object):  # 设置工序一
     wb = Workbook()
     ws = wb.active
-    ws.append(['名称', '日期', '详情','链接'])  # 设置表头
-
-
+    ws.append(['名称', '日期', '链接','编号','招标人','代理机构','招标人电话','代理机构电话','第一中标人','第二中标人','第三中标人','拟中标人','中标金额','限价','工商注册号','组织机构代码',"投诉"])
     def process_item(self, item, spider):  # 工序具体内容
-        line = [item['name'], item['date'], item['details'], item['link']]  # 把数据中每一项整理出来
+        line = [item['name'], item['date'], item['link'],item['zbbh'],item['zbr'],item['dljg'],item['lxdh1'],item['lxdh2'],item['stzbr'],item['ndzbr'],item['tdzbr'],item['nizbr'],item['je'],item['xj'],item['gszch'],item['zzjgdm'],item['tsbm'],]  # 把数据中每一项整理出来
         self.ws.append(line)  # 将数据以行的形式添加到xlsx中
-        self.wb.save('./outcome.xlsx')  # 保存xlsx文件
+        self.wb.save('./outcome2.xlsx')  # 保存xlsx文件
         return item

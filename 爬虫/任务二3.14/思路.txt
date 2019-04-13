@@ -1,0 +1,80 @@
+项目名称 **
+招标编号   **
+招标人
+代理机构
+联系电话
+第一中标
+第二中标
+第三中标
+拟中标
+中标金额
+社会统一代码
+投诉？？
+
+
+
+//*[@id="aspnetForm"]/table[3]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr[4]/td[2]/table/tbody/tr[4]/td[2]/div/table/tbody/tr[4]/td[1]/p/span
+//*[@id="aspnetForm"]/table[3]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr[4]/td[2]/table/tbody/tr[4]/td[2]/div/table/tbody/tr[11]/td[1]/p/span
+//*[@id="aspnetForm"]/table[3]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr[4]/td[2]/table/tbody/tr[4]/td[2]/div/table/tbody/tr[3]/td[3]/p/span
+
+//*[@id="aspnetForm"]/table[3]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr[4]/td[2]/table/tbody/tr[4]/td[2]/div/table/tbody/tr[4]/td[2]/p/span
+
+
+
+
+思路：
+
+
+
+1.request  正则 tbody截断，传入panda
+
+2.将span=2的改写为两个
+
+3.按tr[i]：td[j]遍历，即时去空字符得出若干字典，遍历字典，有关健项添加
+
+4.xpath制成列表，n个if判断
+
+//*[@id="aspnetForm"]/table[3]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr[4]/td[2]/table
+//*[@id="aspnetForm"]/table[3]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr[4]/td[2]/table
+//*[@id="aspnetForm"]/table[3]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr[4]/td[2]/table/tbody/tr[4]/td[2]/table
+
+//*[@id="aspnetForm"]/table[3]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr[4]/td[2]/table/tbody/tr[4]/td[2]/table/tbody/tr[1]/td[1]/p/span
+//*[@id="aspnetForm"]/table[3]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr[4]/td[2]/table/tbody/tr[4]/td[2]/table/tbody/tr[1]/td[2]/p/span
+
+
+
+
+
+
+ a=sel.xpath('//tr[4]/td[2]//tr[4]/td[2]/table').extract() #定位到小表
+a=sel.xpath('//tbody//td//p//text()').extract()
+
+
+
+
+{' 'zbbh': '', 'zbr': '丰都县名山街道办事处', 'dljg': '重庆向远招标代理有限公司', 'lxdh': '/02370702852', 'stzbr': '重庆市鹏业建筑工程有限责任公司', 'ndzbr': '重庆尚邦建筑工程有限公司', 'tdzbr': '重庆市羚农建设集团有限公司', 'nizbr': '重庆市鹏业建筑工程有限责任公司', 'je': '', 'gszch': '91500234208101628N', 'zzjgdm': '/', 'tssl': '', 'tsbm': '投诉受理部门 丰都县发改委 电话 023 70605345 丰都县移民局 02370702852 '}
+
+
+
+//*[@id="aspnetForm"]/table[3]/tbody/tr/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr[4]/td[2]/table/tbody/tr[4]/td[2]/div/table/tbody/tr[2]/td[2]/h4/span
+
+def modi(a):
+    b=[]
+    ok=1       
+    for i in range(len(a)):
+        if(a[i]=="招"):
+            b.append("招标人")
+            i+=5
+        if(a[i]=='\xa0'):
+            i+=1
+        if(( "招标人：" not in a[i]) and  ok ):
+            b.append(a[i])
+        else :
+            ok=0
+
+    for i in range(len(b)):
+        if(b[i]=='-'):
+            b[i-1]+=b[i+1]
+            b.pop(i+1)
+            b.pop(i)
+    return b
